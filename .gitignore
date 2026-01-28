@@ -1,0 +1,14 @@
+# LaTeX auxiliares
+*.aux
+*.log
+*.toc
+*.out
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.blg
+*.bbl
+
+# Sistema y temporales
+.DS_Store
+*.tmp

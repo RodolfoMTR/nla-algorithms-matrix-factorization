@@ -1,0 +1,58 @@
+Para
+\[ A = HH^\top \]
+\[
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{bmatrix}
+=
+\begin{bmatrix}
+h_{11} & 0 & \cdots & 0 \\
+h_{21} & h_{22} & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+h_{n1} & h_{n2} & \cdots & h_{nn}
+\end{bmatrix}
+\begin{bmatrix}
+h_{11} & h_{21} & \cdots & h_{n1} \\
+0 & h_{22} & \cdots & h_{n2} \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & h_{nn}
+\end{bmatrix}
+\]
+
+Tenemos:
+\begin{itemize}
+    \item $h_{11} = \sqrt{a_{11}}$
+    \item $h_{i1} = \frac{a_{i1}}{h_{11}}, \quad i = 2, 3, \dots, n$
+    \item $\sum_{k=1}^{i} h_{ik}^2 = a_{ii}$
+    \item $a_{ij} = \sum_{k=1}^{j} h_{ik}h_{kj}, \quad j < i$
+\end{itemize}
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\SetKwInOut{Input}{Entrada}\SetKwInOut{Output}{Salida}
+
+\Input{Una matriz $A \in \mathbb{R}^{n \times n}$ simétrica definida positiva.}
+\Output{Factor de Cholesky $H$ (matriz triangular superior).}
+
+\BlankLine
+\tcp{El algoritmo construye H fila por fila y sobrescribe la parte superior de A}
+\For{$k = 1, 2, \dots, n$}{
+    
+    \For{$i = 1, 2, \dots, k-1$}{
+        $a_{ki} \equiv h_{ki} = \frac{1}{h_{ii}} \left( a_{ki} - \sum_{j=1}^{i-1} h_{ij}h_{kj} \right)$ \;
+    }
+    
+    \BlankLine
+    \tcp{Cálculo del elemento de la diagonal}
+    $a_{kk} \equiv h_{kk} = \sqrt{a_{kk} - \sum_{j=1}^{k-1} h_{kj}^2}$ \;
+}
+
+\caption{Algoritmo de Factorización de Cholesky}
+\end{algorithm}
+
+A continuación se presenta la implementación del algoritmo:
+
+\lstinputlisting[language=Python]{../scripts/factorization/f-cholesky.py}
+

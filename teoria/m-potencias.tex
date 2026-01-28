@@ -1,0 +1,20 @@
+El método de las Potencias se usa frecuentemente para hallar el autovalor dominante de una matriz. Se llama método de las potencias, porque implícitamente se construye a través de las potencias de $A$.
+
+Sean los autovalores $\lambda_1, \lambda_2, \dots, \lambda_n$ de $A$ tal que
+\[ |\lambda_1| > |\lambda_2| \geq |\lambda_3| \geq \dots \geq |\lambda_n| \]
+esto es, $\lambda_1$ es el autovalor dominante de $A$. Sea $v_1$ el correspondiente autovector asociado a $\lambda_1$. Si $max(g)$ denota el elemento de módulo máximo del vector $g$. Asumamos que $A$ es diagonalizable.
+\vspace{2mm}
+
+\begin{algorithm}[H]
+\caption{Método de las Potencias}
+\DontPrintSemicolon
+Paso 1. Elegir $x_0$\;
+Paso 2. \For{$k = 1, 2, 3, \dots$ \textbf{hasta} convergencia}{
+    $\hat{x}_k = A x_{k-1}$\;
+    $x_k = \frac{\hat{x}_k}{\max \hat{x}_k}$\;
+}
+\end{algorithm}
+A continuación se presenta la implementación del algoritmo:
+
+\lstinputlisting[language=Python]{../scripts/eigen-v/m-potencias.py}
+

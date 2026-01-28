@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage[spanish]{babel}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[ruled,vlined]{algorithm2e}
+% Configuración para que el código se vea limpio
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{orange},
+    numbers=left,
+    numberstyle=\tiny,
+    frame=single,
+    breaklines=true
+}
+\newcommand{\R}{\mathbb R}
+\newcommand{\A}{\mathcal A}
+\newcommand{\B}{\mathcal B}
+\newcommand{\Rc}{\mathcal R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\T}{\mathscr{T}}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{0cm}%sin identación
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[left=2.54cm, right=2.54cm,top=2.54cm,bottom=2.54cm,a4paper,heightrounded]{geometry}
+\usepackage{tcolorbox}%for theorems
+\tcbuselibrary{theorems}%for theorems
+%for theorems
+\newtcbtheorem[number within=section]{theo}{Teorema}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{th}
+\newtcbtheorem[number within=section]{prop}{Proposición}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{prop}
+
+\newtcbtheorem[number within=section]{cor}{Corolario}%
+{colback=magenta!5,colframe=magenta!35!black,fonttitle=\bfseries}{cor}
+
+\newtcbtheorem[number within=section]{lema}{Lema}%
+{colback=yellow!5,colframe=yellow!35!black,fonttitle=\bfseries}{lem}
+
+\newtcbtheorem[number within=section]{deff}{Definición}%
+{colback=blue!5,colframe=blue!70!black,fonttitle=\bfseries}{deff}
+
+\newtheorem*{remark}{Observación}
+\newtheorem{exercise}{Ejercicio}
+\newenvironment{prueba}{\paragraph{Demostración:}\quad\\}{\hfill$\blacksquare$}
+%------titulo
+\title{Implementación de algoritmos de álgebra lineal numérica}
+\author{Rodolfo M. Turpo R.}
+\date{12 de diciembre de 2025}
+%-----
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Matriz de Householder}
+\input{matriz-householder.tex}
+\section{Factorización QR}
+\input{f-qr.tex}
+\section{Factorización de cholesky}
+\input{cholesky.tex}
+\section{minimos cuadrados}
+\section{Método de las potencias}
+\input{m-potencias.tex}
+\end{document}

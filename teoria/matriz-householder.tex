@@ -1,0 +1,43 @@
+La importancia de las matrices de Householder es que pueden crear ceros en las columnas de una matriz por debajo de la entrada de la diagonal principal de $A$.
+\begin{deff}{}{}
+Una matriz de la forma
+\[
+H = I - \frac{2uu^\top}{u^\top u}
+\]
+donde $u$ es un vector no nulo, es llamada \textbf{matriz de Householder}.
+\end{deff}
+\begin{lema}{}{}
+Dado un vector no nulo $x \neq e_1$, existe una matriz de Householder $H$ tal que $Hx$ es múltiplo de $e_1$
+\end{lema}
+\begin{prueba}
+Definamos $H = I - \frac{2uu^\top}{u^\top u}$ con $u = x + sign(x_1) \|x\|_2 e_1$. Entonces, multiplicando, se puede ver que $Hx$ es un múltiplo de $e_1$
+\end{prueba}
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\SetKwInOut{Input}{Entrada}\SetKwInOut{Output}{Salida}
+
+\Input{Vector $u \in \mathbb{R}^n$ que define la matriz de Householder $H$, vector $x \in \mathbb{R}^n$.}
+\Output{Vector $x$ sobrescrito con el producto $Hx$.}
+
+\BlankLine
+\tcp{Paso 1: Calcular el factor de escala}
+$\beta \leftarrow \frac{2}{u^\top u}$ \;
+
+\tcp{Paso 2: Calcular el producto escalar $s = u^\top x$}
+$s \leftarrow \sum_{i=1}^{n} u_i x_i$ \;
+
+\tcp{Paso 3: Actualizar $\beta$ con el producto escalar}
+$\beta \leftarrow \beta \cdot s$ \;
+
+\tcp{Paso 4: Actualizar el vector x}
+\For{$i = 1$ \KwTo $n$}{
+    $x_i \leftarrow x_i - \beta u_i$ \;
+}
+
+\caption{Producto de un vector con una matriz de Householder ($Hx$)}
+\end{algorithm}
+
+A continuación se presenta la implementación del algoritmo:
+
+\lstinputlisting[language=Python]{../scripts/factorization/householder.py}
+

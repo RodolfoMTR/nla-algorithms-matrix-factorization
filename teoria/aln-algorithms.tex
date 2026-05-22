@@ -17,6 +17,17 @@
     frame=single,
     breaklines=true
 }
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,       % enlaces con colores en lugar de cuadros
+    linkcolor=blue,        % color de enlaces internos (índice, referencias)
+    citecolor=blue,        % color de citas bibliográficas
+    filecolor=blue,        % color de enlaces a archivos
+    urlcolor=blue,         % color de URLs
+    bookmarksnumbered=true,
+    pdfstartview=FitH
+}
+
 \newcommand{\R}{\mathbb R}
 \newcommand{\A}{\mathcal A}
 \newcommand{\B}{\mathcal B}
@@ -57,14 +68,22 @@
 \maketitle
 \tableofcontents
 \newpage
-
+\section{Back sustitution \& forward sustitution}
+\input{sustitution.tex}
 \section{Matriz de Householder}
 \input{matriz-householder.tex}
 \section{Factorización QR}
 \input{f-qr.tex}
 \section{Factorización de cholesky}
 \input{cholesky.tex}
+\subsection{Solución de sistemas}
 \section{minimos cuadrados}
+\subsection{Solución de sistemas}
+\section{Métodos iterativos}
+\subsection{Jacobi}
+\subsection{Gauss-Jacobi}
 \section{Método de las potencias}
 \input{m-potencias.tex}
+\section{Singular Value Descomposition}
+\subsection{Solución de sistemas con SVD}
 \end{document}

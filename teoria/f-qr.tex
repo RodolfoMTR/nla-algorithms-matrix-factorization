@@ -1,4 +1,17 @@
+La descomposición $QR$ se trata de descomponer una matriz $A$ es dos matrices de nombre $Q$ y $R$
+\[
+A=QR
+\] 
+donde $Q$ es una matriz ortogonal unitaria y  $R$ es una matriz rectangular
+
 A continuación se presenta la implementación del algoritmo:
 
-\lstinputlisting[language=Python]{../scripts/factorization/f-qr.py}
+\lstinputlisting[language=Python]{../scripts/f-qr.py}
 
+\subsection{Solución de sistemas}
+\begin{align*}
+	Ax&=b\\
+	QRx&=b\\
+	Qy&=b\\
+	y&=Q^{T}b
+\end{align*}
